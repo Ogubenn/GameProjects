@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour 
+public class PlayerController : MonoBehaviour 
 {
     Rigidbody2D rgb;
     Vector3 velocity;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position += velocity * speedAmount * Time.deltaTime;//playerın pozisyonu velocityle ve bizim verdiğimiz float değerle çarpılır.Normal zamana uyarlanıp karaktermizin hareket etmesini sağlar.
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));//Speed parametresi yatay düzlemde eksi değer alabileceği için Horizontal değerin mutlak değerini kullanıyoruz.
 
-        if (Input.GetButtonDown("Jump")&& !animator.GetBool("isJumping"))
+        if (Input.GetButton("Jump")&& !animator.GetBool("isJumping"))
         {
             rgb.AddForce(Vector3.up * jumpAmount,ForceMode2D.Impulse);//Impulse anlık kuvvet uygular.
             animator.SetBool("isJumping", true);
