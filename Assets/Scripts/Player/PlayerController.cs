@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public float speedAmount = 2f;
-
     public float runAmount = 5f;
     public float jumpAmount = 4f;
+    public bool shoot = false;
+
+
 
     public void Awake() 
     {
@@ -49,11 +51,17 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRun",false);
         }
 
+        if(Input.GetButtonDown("Fire1")) 
+        {
+          Fire();
+        }
+
     }
 
     #endregion
 
     #region Isjumpingi groundla eşleme kontrol işemleri
+
     private void OnCollisionEnter2D(Collision2D collision) 
     {
       if(collision.gameObject.tag == "Ground")
@@ -66,9 +74,17 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
       {
         animator.SetBool("isJumping", true);
-      }  
-
-        
+      }        
     }
     #endregion
+    public void Fire()
+    {
+      if (Input.GetKey(KeyCode.Mouse0))  
+        {
+            Debug.Log("ateşediyor");
+            animator.SetBool("shoot",true);
+        }
+        else
+          animator.SetBool("shoot",false);
+    }
 }//class
