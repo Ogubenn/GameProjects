@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float speedAmount = 2f;
     public float runAmount = 5f;
     public float jumpAmount = 4f;
-    public bool shoot = false;
+    //private bool shoot = false;
 
 
 
@@ -87,9 +87,9 @@ public class PlayerController : MonoBehaviour
     #endregion
     private IEnumerator Fire()
     {
-        Instantiate(bulletPrefabs,bulletTransform.position,bulletTransform.rotation);
-        Destroy(bulletPrefabs,2f);
+        GameObject bullet =  Instantiate(bulletPrefabs,bulletTransform.position,bulletTransform.rotation);
         yield return new WaitForSeconds(3f);
+        Destroy(bullet,5f);
     }
     
 }//class
