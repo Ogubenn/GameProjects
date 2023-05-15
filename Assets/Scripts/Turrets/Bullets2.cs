@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullets2 : MonoBehaviour
 {
   
     public float bulletSpeed = 20f;
@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = transform.right * bulletSpeed;
+        rb.velocity = (-1*transform.right) * bulletSpeed;
     }
     
 }
