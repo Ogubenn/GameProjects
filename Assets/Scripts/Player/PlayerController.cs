@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rgb;
     Vector3 velocity;
+    [SerializeField] GameObject bulletPrefabs;
+    [SerializeField] Transform bulletTransform;
+
     public Animator animator;
 
     public float speedAmount = 2f;
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("ateşediyor");
             animator.SetBool("shoot",true);
+            StartCoroutine(Fire());
+            
         }
         else
           animator.SetBool("shoot",false);
@@ -80,5 +85,11 @@ public class PlayerController : MonoBehaviour
       }        
     }
     #endregion
-
+    private IEnumerator Fire()
+    {
+        Instantiate(bulletPrefabs,bulletTransform.position,bulletTransform.rotation);
+        Destroy(bulletPrefabs,2f);
+        yield return new WaitForSeconds(3f);
+    }
+    
 }//class
