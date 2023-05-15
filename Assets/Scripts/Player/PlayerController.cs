@@ -51,10 +51,13 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRun",false);
         }
 
-        if(Input.GetButtonDown("Fire1")) 
+       if (Input.GetKey(KeyCode.Mouse0))  
         {
-          Fire();
+            Debug.Log("ateşediyor");
+            animator.SetBool("shoot",true);
         }
+        else
+          animator.SetBool("shoot",false);
 
     }
 
@@ -77,14 +80,5 @@ public class PlayerController : MonoBehaviour
       }        
     }
     #endregion
-    public void Fire()
-    {
-      if (Input.GetKey(KeyCode.Mouse0))  
-        {
-            Debug.Log("ateşediyor");
-            animator.SetBool("shoot",true);
-        }
-        else
-          animator.SetBool("shoot",false);
-    }
+
 }//class

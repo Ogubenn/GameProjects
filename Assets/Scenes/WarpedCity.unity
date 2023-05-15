@@ -3027,6 +3027,7 @@ MonoBehaviour:
   speedAmount: 2
   runAmount: 5
   jumpAmount: 5
+  shoot: 0
 --- !u!1 &2144356506
 GameObject:
   m_ObjectHideFlags: 0
