@@ -2,18 +2,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform takipEdilecekNesne;
-    public float takipHizi = 2f;
+    public float FollowSpeed = 2f;
+    public float yOffset = 1f;
 
-    void Update()
+    public Transform target;
+
+    void LateUpdate() 
     {
-        // Takip edilecek nesne var mı kontrol ediyoruz
-        if (takipEdilecekNesne != null)
-        {
-            // Kameranın pozisyonunu, takip edilecek nesneye doğru hareket ettiriyoruz
-            Vector3 yeniPozisyon = Vector3.Lerp(transform.position, takipEdilecekNesne.position, takipHizi * Time.deltaTime);
-            yeniPozisyon.z = transform.position.z; // Kameranın Z pozisyonunu sabit tutuyoruz
-            transform.position = yeniPozisyon; // Yeni pozisyonu atıyoruz
-        }
+        Vector3 newPos = new Vector3(target.position.x,target.position.y + yOffset, -10f);
+        transform.position = Vector3.Slerp(transform.position,newPos,FollowSpeed* Time.deltaTime);
     }
-}
+}//class
