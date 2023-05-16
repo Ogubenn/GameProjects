@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 1140370731}
   m_Layer: 0
   m_Name: stairsup (1)
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2456,6 +2456,7 @@ GameObject:
   - component: {fileID: 1858601140}
   - component: {fileID: 1858601141}
   - component: {fileID: 1858601142}
+  - component: {fileID: 1858601143}
   m_Layer: 0
   m_Name: Elvan
   m_TagString: Player
@@ -2543,7 +2544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858601134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.76, y: -1.72, z: 0}
+  m_LocalPosition: {x: -7.71, y: -1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2629,6 +2630,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turret: {fileID: 0}
+--- !u!114 &1858601143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858601134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7534b819a5c32b8488f253b2c364934d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2144356506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,9 +2751,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2063769174648880439}
   - component: {fileID: 4489907579754083603}
+  - component: {fileID: 4489907579754083604}
   m_Layer: 0
   m_Name: stairsup
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2756,7 +2770,7 @@ GameObject:
   - component: {fileID: 1780511111126634837}
   m_Layer: 0
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2860,7 +2874,7 @@ GameObject:
   - component: {fileID: 4128765014162695906}
   m_Layer: 0
   m_Name: stairs1
-  m_TagString: Untagged
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3221,7 +3235,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2224476, y: 0}
+  m_Offset: {x: -1.7034838, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3232,7 +3246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.564257, y: 0.61538464}
+  m_Size: {x: 4.513044, y: 0.61538464}
   m_EdgeRadius: 0
 --- !u!212 &2523308278476965530
 SpriteRenderer:
@@ -3666,6 +3680,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4489907579754083604
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123831880996268864}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.29043728}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.61538464, y: 1.2307693}
+    newSize: {x: 0.61538464, y: 1.2307693}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.61538464, y: 3.009697}
+  m_EdgeRadius: 0
 --- !u!4 &4524755528581447612
 Transform:
   m_ObjectHideFlags: 0
