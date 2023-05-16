@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))  
         {
-            Debug.Log("Koşuyor");
             speedAmount = runAmount;
             animator.SetBool("isRun",true);
         }
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour
 
        if (Input.GetKey(KeyCode.Mouse0))  
         {
-            Debug.Log("ateşediyor");
             animator.SetBool("shoot",true);
             StartCoroutine(Fire());
             

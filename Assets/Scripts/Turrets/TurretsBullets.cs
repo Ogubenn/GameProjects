@@ -31,7 +31,7 @@ public class TurretsBullets : MonoBehaviour
         if(other.gameObject.CompareTag("TurretBullet"))
         {
             //Healt İşlemleri yapılacak*******
-            Debug.Log("mermi düşmana dokundu");  
+            //Debug.Log("mermi düşmana dokundu"); 
         }
     }
 
