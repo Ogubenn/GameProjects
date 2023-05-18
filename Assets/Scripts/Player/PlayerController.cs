@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRun",false);
         }
 
-       if (Input.GetKey(KeyCode.Mouse0))  
+       if (Input.GetButtonDown("Fire 1"))  
         {
             animator.SetBool("shoot",true);
             StartCoroutine(Fire());
