@@ -16,14 +16,13 @@ public class StairsClimb : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Stairs"))
         {
-
+            rb.gravityScale = 0f;
             Debug.Log("Merdiven çıkıyor");
             anim.SetBool("Climb",true);
         }
@@ -44,6 +43,8 @@ public class StairsClimb : MonoBehaviour
         {
             anim.SetBool("Climb",false);
             rb.velocity = Vector2.zero;
+            rb.gravityScale = 1f;
         }
+       
     }
 }//class

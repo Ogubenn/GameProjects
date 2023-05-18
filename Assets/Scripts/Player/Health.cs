@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealt;
+    public int maxHealth = 100;//max can
+    public int currentHealt;//geçerli can
 
-    public int outHealth = 5;
+    public int outHealth = 5;//düşmandan damage yiyince giden can miktarı
+    
 
     public HealthBar healthBar;
 

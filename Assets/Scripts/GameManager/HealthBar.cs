@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    public Gradient gradient;
+    public Gradient gradient;//renklerde yumuşak geçiş için gradient kullandık
     public Image fill;
 
     public void SetMaxHealt(int healt)
@@ -14,7 +14,8 @@ public class HealthBar : MonoBehaviour
         slider.maxValue = healt;
         slider.value = healt;
 
-        fill.color = gradient.Evaluate(1f);
+        fill.color = gradient.Evaluate(1f);//Animasyonların değerini hesaplamak ve değiştirmek için kullanılan ifadedir.Evaulate
+        //gradientin belirlitilen zaman noktasındaki renk değerini output verir.
     }
 
     public void SetHealth(int health)
