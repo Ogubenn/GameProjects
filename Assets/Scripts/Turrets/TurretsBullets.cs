@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class TurretsBullets : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     public GameObject turretBulletPrefab;
     public Transform turretSpawnPoint;
+
 
 
     void Start()
@@ -27,11 +29,19 @@ public class TurretsBullets : MonoBehaviour
         GameObject bullet = Instantiate(turretBulletPrefab,turretSpawnPoint.position,turretSpawnPoint.rotation);
     }
 
+    #region Turretin ölmesi ve animasyonu girmesi
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            Destroy(gameObject,2f);
+            anim.SetBool("TurretDead",true);
+            Invoke("TurretDown",1.25f);//Invoke bir fonksiyonu belirlediğimiz zaman sonra çalışan bir fonksiyondur.
         }
     }
+
+    public void TurretDown()
+    {
+        gameObject.SetActive(false);
+    }
+    #endregion
 }//class

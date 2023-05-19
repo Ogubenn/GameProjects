@@ -3880,6 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d804788fe02a5e4898b44f1166597ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2487546930061669360}
   turretBulletPrefab: {fileID: 2193216960447873080, guid: 6e7730e3b1f3d264190a1496f3890da9, type: 3}
   turretSpawnPoint: {fileID: 2487546930724885211}
 --- !u!1 &2487546930724885210
