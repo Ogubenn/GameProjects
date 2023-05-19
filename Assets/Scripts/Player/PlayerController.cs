@@ -7,15 +7,17 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rgb;
     Vector3 velocity;
 
-
+    [Header("Bullets")]
     [SerializeField] GameObject bulletPrefabs;
     [SerializeField] Transform bulletTransform;
-    
 
-    public Animator animator;
-    public float speedAmount = 2f;
-    public float runAmount = 5f;
-    public float jumpAmount = 4f;
+    [Header("Animasyon")]
+    [SerializeField] Animator animator;
+
+    [Header("Karakter Hız İşlemleri")]
+    public float speedAmount = 2f;//Karakter hızı
+    public float runAmount = 5f;//Karakterin koşma hızı
+    public float jumpAmount = 4f;//Karakterin zıplama hızı
 
 
     #region Awake
@@ -83,17 +85,19 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Ateş fonksiyonu
     void Shoot()
     {
         animator.SetBool("shoot",true);
         StartCoroutine(Fire());
-    }
+    } 
     private IEnumerator Fire()
     {
         GameObject bullet =  Instantiate(bulletPrefabs,bulletTransform.position,bulletTransform.rotation);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         animator.SetBool("shoot",false);
         Destroy(bullet,5f);
     }
+    #endregion
     
 }//class

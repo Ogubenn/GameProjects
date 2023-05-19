@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5120907689079775238}
   - component: {fileID: -2551544987641234580}
   m_Layer: 0
-  m_Name: TurretBullets
+  m_Name: SolMermi
   m_TagString: TurretBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4fbf706a554544a80ceb7e7f429910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  bulletSpeed: 10
   rb: {fileID: 4799586670177541078}
+  trans: -1
 --- !u!58 &-2551544987641234580
 CircleCollider2D:
   m_ObjectHideFlags: 0

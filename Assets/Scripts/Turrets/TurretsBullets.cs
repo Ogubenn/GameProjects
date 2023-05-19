@@ -7,6 +7,7 @@ public class TurretsBullets : MonoBehaviour
     public GameObject turretBulletPrefab;
     public Transform turretSpawnPoint;
 
+
     void Start()
     {
         StartCoroutine(ShootBullets());
@@ -28,11 +29,9 @@ public class TurretsBullets : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("TurretBullet"))
+        if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            //Healt İşlemleri yapılacak*******
-            //Debug.Log("mermi düşmana dokundu"); 
+            Destroy(gameObject,2f);
         }
     }
-
 }//class

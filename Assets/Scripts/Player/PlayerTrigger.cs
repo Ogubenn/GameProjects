@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    [SerializeField] GameObject Turret;
+    private Health GettingHealt;
+    public  int EnemyDamage = 5;//Turretin playera verdiği hasar
+
+    void Awake()
+    {
+        GettingHealt = GetComponent<Health>();
+    }
+
+    #region Turretin mermisinin playera dokunması ve playerın canının azalması
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "PlayerBullet")
-        {
-            //Düşman can azalma işlemleri yapılıcak*******
-            Debug.Log("düşmana hit atıyorum");
-            //Destroy(Turret); 
-        }
+        if (other.gameObject.CompareTag("TurretBullet"))
+            GettingHealt.TakeDamage(EnemyDamage);
     }
+
+    #endregion
+
 }

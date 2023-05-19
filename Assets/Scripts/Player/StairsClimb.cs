@@ -9,7 +9,7 @@ public class StairsClimb : MonoBehaviour
 
     Vector3 velocity;
 
-    private float speed = 2f;
+    private float speed = 2f;//Playerın merdiveni çıkma hızı
     
 
     void Awake()
@@ -18,16 +18,19 @@ public class StairsClimb : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    #region Merdivenden çıkmak
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Stairs"))
         {
-            rb.gravityScale = 0f;
-            Debug.Log("Merdiven çıkıyor");
+            rb.gravityScale = 0f;//Merdivenden çıkması için yerçekimini sıfırlıyoruz.
             anim.SetBool("Climb",true);
         }
     }
 
+    #endregion 
+
+    #region Merdivende Kalmak
     void OnTriggerStay2D(Collider2D other)
     {
         if(other.CompareTag("Stairs"))
@@ -37,14 +40,19 @@ public class StairsClimb : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Merdivenden ayrılmak
     void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("Stairs"))
         {
             anim.SetBool("Climb",false);
             rb.velocity = Vector2.zero;
-            rb.gravityScale = 1f;
+            rb.gravityScale = 1f;//Yerçekimini tekrardan 1 e getiriyoruz ve normal haline dönüyor.
         }
        
     }
+
+    #endregion
 }//class
