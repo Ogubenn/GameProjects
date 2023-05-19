@@ -18,13 +18,23 @@ public class PlayerController : MonoBehaviour
     public float jumpAmount = 4f;
 
 
-
+    #region Awake
     public void Awake() 
     {
       rgb = GetComponent<Rigidbody2D>();
     }
 
-#region update
+    #endregion
+
+  
+    void Update()
+    {
+      if (Input.GetKeyDown(KeyCode.Mouse0))  
+        {
+            Shoot();//Fixed updatede frame atladığı ve düzgün çalışmadığı için update'e yazdık.
+        }
+    }
+
     private void FixedUpdate() 
     {
         velocity = new Vector3(Input.GetAxis("Horizontal"), 0f);
@@ -52,19 +62,8 @@ public class PlayerController : MonoBehaviour
             speedAmount = 2f;
             animator.SetBool("isRun",false);
         }
-
-       if (Input.GetButtonDown("Fire 1"))  
-        {
-            animator.SetBool("shoot",true);
-            StartCoroutine(Fire());
-            
-        }
-        else
-          animator.SetBool("shoot",false);
-
     }
 
-    #endregion
 
     #region Isjumpingi groundla eşleme kontrol işemleri
 
@@ -83,10 +82,17 @@ public class PlayerController : MonoBehaviour
       }        
     }
     #endregion
+
+    void Shoot()
+    {
+        animator.SetBool("shoot",true);
+        StartCoroutine(Fire());
+    }
     private IEnumerator Fire()
     {
         GameObject bullet =  Instantiate(bulletPrefabs,bulletTransform.position,bulletTransform.rotation);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("shoot",false);
         Destroy(bullet,5f);
     }
     
