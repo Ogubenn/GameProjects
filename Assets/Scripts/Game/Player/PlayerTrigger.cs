@@ -8,6 +8,9 @@ public class PlayerTrigger : MonoBehaviour
     private Health GettingHealt;
     public  int EnemyDamage = 5;//Turretin playera verdiği hasar
 
+    [SerializeField] AudioClip Hurt;
+
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -21,6 +24,8 @@ public class PlayerTrigger : MonoBehaviour
         {
             GettingHealt.TakeDamage(EnemyDamage);
             anim.SetTrigger("isDead");
+            AudioSource.PlayClipAtPoint(Hurt,transform.position);
+
         }
 
         if(GettingHealt.currentHealt <= 0)
