@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurretsBullets : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] AudioClip Dead;
     public GameObject turretBulletPrefab;
     public Transform turretSpawnPoint;
 
@@ -36,6 +37,7 @@ public class TurretsBullets : MonoBehaviour
         {
             anim.SetBool("TurretDead",true);
             Invoke("TurretDown",1.25f);//Invoke bir fonksiyonu belirlediğimiz zaman sonra çalışan bir fonksiyondur.
+            AudioSource.PlayClipAtPoint(Dead,transform.position);
         }
     }
 

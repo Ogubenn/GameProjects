@@ -3133,6 +3133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDamage: 25
+  "G\xFC\xE7": 5
   Hurt: {fileID: 8300000, guid: 4f5aac590e66b144c8f0c0131942da13, type: 3}
 --- !u!114 &1858601143
 MonoBehaviour:

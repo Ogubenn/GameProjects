@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
+
     private Animator anim;
     private Health GettingHealt;
-    public  int EnemyDamage = 5;//Turretin playera verdiği hasar
+    Rigidbody2D rb;
 
-    [SerializeField] AudioClip Hurt;
+    [Header("Enemy")]
+    public  int Damage = 5;//Turretin playera verdiği hasar
+    public float Force = 10f;
+
+    [Header("Player")]
+    [SerializeField] AudioClip HurtClip;
 
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         GettingHealt = GetComponent<Health>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     #region Turretin mermisinin playera dokunması ve playerın canının azalması
@@ -22,9 +29,12 @@ public class PlayerTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("TurretBullet"))
         {
-            GettingHealt.TakeDamage(EnemyDamage);
+            GettingHealt.TakeDamage(Damage);
             anim.SetTrigger("isDead");
-            AudioSource.PlayClipAtPoint(Hurt,transform.position);
+            AudioSource.PlayClipAtPoint(HurtClip,transform.position);
+            Vector2 forceDirection = transform.position - other.transform.position;
+            forceDirection = forceDirection.normalized;
+            rb.AddForce(forceDirection * Force,ForceMode2D.Impulse);
 
         }
 
