@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] GameObject RestartMenu;
     public int maxHealth = 100;//max can
     public int currentHealt;//geçerli can
 
@@ -22,6 +23,16 @@ public class Health : MonoBehaviour
     {
         currentHealt -= damage;
         healthBar.SetHealth(currentHealt);
+        if (currentHealt <= 0)
+            PlayerDead();
+    }
+
+    public void PlayerDead()
+    {
+        gameObject.SetActive(false);
+        RestartMenu.SetActive(true);
+        Time.timeScale = 0;
+
     }
 
 
